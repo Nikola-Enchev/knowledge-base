@@ -36,10 +36,10 @@ function main() {
 }
 
 function processTransactions(transactions) {
-  if (transactions && transactions.length > 0) {
-    for (const transaction of transactions) {
-      if (transaction.type === 'PAYMENT') {
-        if (transaction.status === 'OPEN') {
+  if (transactions && transactions.length > 0) { // guard, extract
+    for (const transaction of transactions) { // extract
+      if (transaction.type === 'PAYMENT') { // extract
+        if (transaction.status === 'OPEN') { //guard
           if (transaction.method === 'CREDIT_CARD') {
             processCreditCardPayment(transaction);
           } else if (transaction.method === 'PAYPAL') {
@@ -51,7 +51,7 @@ function processTransactions(transactions) {
           console.log('Invalid transaction type!');
         }
       } else if (transaction.type === 'REFUND') {
-        if (transaction.status === 'OPEN') {
+        if (transaction.status === 'OPEN') { // guard
           if (transaction.method === 'CREDIT_CARD') {
             processCreditCardRefund(transaction);
           } else if (transaction.method === 'PAYPAL') {

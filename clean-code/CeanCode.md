@@ -107,47 +107,118 @@ Well named things allow us to understand the code without going through the code
     retrieveUsers();
  ```
 
-### Examples 
-
- ``` js
- // add examples from our codebase
- ```
-
 ## Code Structure 
 
 ### Formatting 
 
 #### Why to format? 
 
- - Greatly improves readability 
+> *Code formatting greatly improvers readability, transports meaning and reduced cognitive load*
 
- - Reduces cognitive load
 
-#### Rules: 
+#### Vertical formatting
 
-  - Use vertical formatting to keep related concepts together and separate concepts which are not closely related. 
-  - Keep lines short and add line breaks to improve readability. 
-  - Code should be readable like essay top-to-bottom, without many jumps.
+#### Rules:
   - Consider splitting files with multiple concepts into multiple files.
-  - Related concepts should be kept close to each other. (declarations, calls, etc.) 
-  - Public and Private methods ordering. (depends of the style guide)
-  - Lines of Code should be readable without scrolling. (if line is long extract parts of it into separate declarations)
+  - Different concepts should be separated by spacing.
+  - Related concepts should be kept close to each other. 
+
+#### Horizontal formatting
+
+#### Rules:
+  - Lines of code should be readable without horizontal scrolling.
+  - Break long statements into multiple shorter ones.
+  - Use clear but not too long names.
 
 ### Good comments vs Bad comments 
 
 > *Most comments are bad. We should wire code in a way that it is self explanatory.*
 
-#### Good:
- - Legal info
- - Warnings
- - Required explanations (Regex)
- - TODOs
-
 #### Bad:
- - Redundant information. *Using proper names makes the code self explanatory, thus making comments not needed.*
- - Markers. *If you feel that you need to use markers, you have too much code in that file.*
- - Commented out code. *Use version control instead.*
- 
+
+- **Redundant information** 
+  >*Using proper names makes the code self explanatory, thus making comments not needed.*
+
+  ``` js
+  // Reset selectedAttributes
+  this.selectedAttributes = [];
+  ```
+
+- **Markers** 
+  >*If you feel that you need to use markers, you have too much code in that file.*
+
+  ``` js
+  // Material
+  import { MatSidenavModule } from '@angular/material/sidenav';
+  //...
+  ```
+
+- **Commented out code**  
+  >*Use version control instead.*
+
+#### Good:
+ - **Legal info**
+    ``` js
+    // © 2021 Company Name
+    ```
+
+ - **Warnings**
+    ```js
+    // Only works in browser environment
+    localStorage.setItem('user', 'test@test.com')
+    ```
+
+ - **Required explanations**
+    ``` js
+    // accepts [text]@[text].[text], i.e. it simply requires an "@" and a dot
+    const emailRegex = /\S+@\S+\.\S+/;
+    ```
+
+ - **TODOs**
+    ``` js 
+    const findOne = (id) => {
+      // Todo: Needs to be implemented
+    }
+    ```
+
+  - **Documentation**
+
+    ``` js
+    /**
+    * @param {string} email
+    * @returns {Promise}
+    */
+    const login = (email) => {
+      // ...
+    }
+    ```
+
+## Control Structures & Errors
+
+#### How to avoid deeply nested control structures
+
+Rules:
+- Use guards
+- Use factory functions and polymorphism.
+- Prefer positive checks.
+- Use errors avoid if checks
+
+### User Guards & Fails fast
+
+``` js
+if(email.includes(@)) {
+  // do stuff
+}
+```
+
+``` js
+if(!email.includes(@)) {
+  return;
+}
+// do stuff
+```
+> *Check out examples in the examples/control-structures*
+
 ## Functions
 
 ### Parameters matter
@@ -238,34 +309,6 @@ A pure functions is:
 If a function has a side effect, it should be obvious from the name of the function.
 
 > *Good functions are easy to test.*
-
-
-## Control Structures & Errors
-
-Avoid deep nesting by using factory functions and polymorphism.
-Prefer positive checks.
-Use errors avoid if checks
-
-### User Guards & Fails fast
-
-Rules:
- - Use guards to avoid deep nesting.
- - Prefer positive checks for easier readability.
- - Use factory functions and polymorphism.
-
-``` js
-if(email.includes(@)) {
-  // do stuff
-}
-```
-
-``` js
-if(!email.includes(@)) {
-  return;
-}
-// do stuff
-```
-> *Check out examples in the examples/control-structures*
 
 ## Classes & Data Structures
 
