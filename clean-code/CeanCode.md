@@ -77,10 +77,6 @@ Well named things allow us to understand the code without going through the code
 
  - Avoid using slang only the team understands 
 
- ``` js
- // add example
- ```
-
  - Avoid unclear abbreviations
 
  ```js
@@ -95,9 +91,8 @@ Well named things allow us to understand the code without going through the code
 
  - Don’t create methods that sound and look similar, that are also used in the same place 
 
-  ``` js
- // add example
- ```
+> *Check the examples folder for code examples*
+
 
  - Be consistent when naming things across the project
 
