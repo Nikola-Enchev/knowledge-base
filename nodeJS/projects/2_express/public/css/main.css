@@ -1,0 +1,42 @@
+.main-header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+.main-header__nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-header__item-list {
+  list-style: none;
+  display: flex;
+}
+
+.main-header__item {
+  margin-right: 1rem;
+}
+
+.main-header__item a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  margin-right: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
