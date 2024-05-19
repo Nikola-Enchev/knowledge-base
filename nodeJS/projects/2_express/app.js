@@ -1,28 +1,26 @@
-const http = require("http");
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
+const path = require('path');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const expressHbs = require('express-handlebars');
 
 const app = express();
 
-const adminRoute = require("./routes/admin");
-const shopRoute = require("./routes/shop");
+app.engine
+app.set('view engine', 'pug');
+app.set('views', 'views');
 
-// body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+const adminData = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
-// middleware to serve static files
-app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// routes
-app.use("/admin", adminRoute);
-app.use(shopRoute);
+app.use('/admin', adminData.routes);
+app.use(shopRoutes);
 
-// 404 page
 app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "views", "page-not-found.html"));
+    res.status(404).render('404', {pageTitle: 'Page Not Found'});
 });
 
-const server = http.createServer(app);
-
-server.listen(3000);
+app.listen(3000);
