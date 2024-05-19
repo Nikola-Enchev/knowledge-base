@@ -44,8 +44,8 @@ This is my personal knowledge base. It is a collection of notes on various topic
 - [x] NodeJS Fundamentals
 - [x] Debugging NodeJS Applications in VSCode
 - [x] Express.js
-- [ ] Dynamic Content & Templating Engines
-- [ ] MVC
+- [x] Dynamic Content & Templating Engines
+- [x] MVC
 - [ ] Dynamic Routes & Advanced Models
 - [ ] SQL Introduction
 - [ ] Sequelize
